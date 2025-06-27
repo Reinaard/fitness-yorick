@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
 import LowerBodyPage from './pages/LowerBodyPage';
+import FoodPage from './pages/FoodPage';
 import UpperBodyPage from './pages/UpperBodyPage';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -21,7 +22,7 @@ function App() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="food_page">Food</Nav.Link>
+                <Nav.Link href="/food_page">Food</Nav.Link>
                 <NavDropdown title="WrokoutPlan" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/upper_body">Upper body</NavDropdown.Item>
                   <NavDropdown.Divider />
@@ -36,6 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/upper_body" element={<UpperBodyPage />}></Route>
+            <Route path="/food_page" element={<FoodPage />}></Route>
             <Route path="/lower_body" element={<LowerBodyPage />}></Route>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
