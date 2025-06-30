@@ -42,17 +42,35 @@
   font-size: 4rem;
 }
 
+.exersise-list {
+  padding: 0px;
+}
 .exersise-list li {
   padding-bottom:10px;
   list-style: none;
   text-align: left;
   font-size: 4rem;
+  border-bottom: 1px solid black;
 }
 
 .exersise-header {
   background-color: grey;
-  border-left: black 2px solid;
+  /* border-left: black 2px solid; */
   font-size: 40px;
   text-align: left;
   font-weight: bold;
+}
+.exercise-grid {
+  margin: 4px;
+}
+.exercise-grid > * {
+  height:200px;
+  margin:4px;
+  background-image: url('img/template_fitness.jpg');
+  background-size: 415px;
+}
+.exercise-grid h3 {
+  text-align: left;
+  margin-top: 12px;
+  margin-left: 8px;
 }
