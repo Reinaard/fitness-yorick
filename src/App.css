@@ -65,6 +65,7 @@
 }
 .exercise-grid > * {
   height:200px;
+  min-width: 300px;
   margin:4px;
   background-image: url('img/template_fitness.jpg');
   background-size: 415px;
@@ -83,16 +84,51 @@
     position:absolute;
     bottom:10px;
     right:10px;
-    font-size: 37px;
+    font-size: 39px;
     padding-top: 12px;
     padding-left: 8px;
 }
 .button-plus::before {
     content: "+";
     position: absolute;
-    top: -14px;
-    left: 5px;
+    top: -16px;
+    left: 4px;
+    cursor: pointer;
+
 }
 .exercise-grid .btn-container {
     position:relative;
-} 
+}
+
+#teller {
+  position:fixed;
+  right:40px;
+  bottom: 80px;
+  display: none;
+  z-index:1;
+  background-color: white;
+  padding:20px;
+  border: 3px solid black;
+  border-radius: 10%;
+  text-align:left;
+
+}
+#ovalButton {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 50px; /* Makes the button oval */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border: 3px solid rgb(30, 91, 0);
+
+}
+
+#ovalButton:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
