@@ -135,26 +135,35 @@
 }
 
 .checkmark {
-  width: 50px;
-  height: 50px;
-  display: inline-block;
+  width: 40px;
+  height: 40px;
+  bottom:10px;
+  right:10px;
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
   transform: rotate(0deg);
-  border: 5px solid green;
-  border-top: none;
-  border-left: none;
-  transform-origin: bottom right;
-  clip-path: polygon(0% 50%, 50% 100%, 100% 0%, 50% 50%);
-  animation: rotateCheckmark 1s ease-in-out forwards;
-  position: absolute;
-  right: 71px;
-  bottom: 10px;
+  transition: transform 0.5s ease;
 }
 
-@keyframes rotateCheckmark {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(45deg);
-  }
+.checkmark::after {
+  content: '';
+  width: 15px;
+  height: 30px;
+  border: solid #4CAF50;
+  border-width: 0 5px 5px 0;
+  display: none;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.checkmark.active {
+  transform: rotate(360deg);
+}
+
+.checkmark.active::after {
+  display: block;
 }

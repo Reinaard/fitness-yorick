@@ -23,12 +23,9 @@ function UpperBodyPage() {
   }, []);
 
     function voegToeAanLijst(exercise) {
-      document.addEventListener("DOMContentLoaded", () => {
-        const checkmark = document.querySelector(".checkmark");
-        setTimeout(() => {
-          checkmark.style.animation = "rotateCheckmark 1s ease-in-out forwards";
-        }, 500); // Delay before animation starts
-      });
+      let knop=document.getElementById(`checkmark-${exercise.id}`)
+      knop.classList.toggle('active');
+  
       const element = document.getElementById(`tegel-${exercise.id}`);
       document.styleSheets[0].insertRule(`tegel-${exercise.id}::before { content: 'Welcome! '; }`, 0);
       if (!aantalToegevoegd.includes(exercise.name)){
@@ -56,7 +53,7 @@ function UpperBodyPage() {
               <h3>{exercise.name}</h3>
               <span>{exercise.category}</span>
               <div className='button'>
-                <div className="checkmark"></div>
+                <div id={`checkmark-${exercise.id}`} className="checkmark"></div>
                 <div className='button-plus' onClick={()=>{voegToeAanLijst(exercise)}} id={`tegel-${exercise.id}`}></div>
               </div>
 
