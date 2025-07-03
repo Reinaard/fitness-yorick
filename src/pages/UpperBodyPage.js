@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function UpperBodyPage() {
   const [users, setUsers] = useState([]);
   const [aantalToegevoegd, setAantalToegevoegd] = useState([]);
@@ -21,8 +22,13 @@ function UpperBodyPage() {
     fetchUsers();
   }, []);
 
-
     function voegToeAanLijst(exercise) {
+      document.addEventListener("DOMContentLoaded", () => {
+        const checkmark = document.querySelector(".checkmark");
+        setTimeout(() => {
+          checkmark.style.animation = "rotateCheckmark 1s ease-in-out forwards";
+        }, 500); // Delay before animation starts
+      });
       const element = document.getElementById(`tegel-${exercise.id}`);
       document.styleSheets[0].insertRule(`tegel-${exercise.id}::before { content: 'Welcome! '; }`, 0);
       if (!aantalToegevoegd.includes(exercise.name)){
@@ -50,7 +56,8 @@ function UpperBodyPage() {
               <h3>{exercise.name}</h3>
               <span>{exercise.category}</span>
               <div className='button'>
-              <div className='button-plus' onClick={()=>{voegToeAanLijst(exercise)}} id={`tegel-${exercise.id}`}></div>
+                <div className="checkmark"></div>
+                <div className='button-plus' onClick={()=>{voegToeAanLijst(exercise)}} id={`tegel-${exercise.id}`}></div>
               </div>
 
             </Col>
@@ -63,15 +70,16 @@ function UpperBodyPage() {
             <li>{exercise}</li>
           ))}
         </ul>
-      </div>    
-      <button
+      </div>
+      <a
         id="ovalButton"
-        onClick={()=>{alert(`${aantalToegevoegd.length} oefeningen geselecteerd!`)}}
+        href="/selected"
+        // onClick={()=>{alert(`${aantalToegevoegd.length} oefeningen geselecteerd!`)}}
         onMouseOver={()=>{oefeningenLatenZien(true)}}
         onMouseOut={()=>{oefeningenLatenZien(false)}}
       >
         {aantalToegevoegd.length}
-      </button>
+      </a>
     </>
   );
 }

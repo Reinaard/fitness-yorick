@@ -10,6 +10,7 @@ import FoodPage from './pages/FoodPage';
 import UpperBodyPage from './pages/UpperBodyPage';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
+import SelectedPage from './pages/SelectedPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
             <Route path="/upper_body" element={<UpperBodyPage />}></Route>
             <Route path="/food_page" element={<FoodPage />}></Route>
             <Route path="/lower_body" element={<LowerBodyPage />}></Route>
+            <Route path="/selected" element={<SelectedPage />}></Route>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Router>
